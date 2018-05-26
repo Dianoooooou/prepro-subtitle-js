@@ -1,0 +1,50 @@
+{
+  "duration": 2.266,
+  "framerate": 25,
+  "totalframes": 70,
+  "width": 1280,
+  "height": 708,
+  "size": 0.47005271911621094,
+  "services": [
+    {
+      "name": "video2frames",
+      "path": "prepros/frames",
+      "type": "mov_result/prepros/frames"
+    },
+    {
+      "name": "video2audio",
+      "path": "prepros/audio/mono.wav",
+      "type": "wav"
+    },
+    {
+      "name": "video2kfvideo",
+      "path": "source.mov",
+      "type": "mov"
+    },
+    {
+      "name": "frames2colors",
+      "path": "prepros/colors/colors.json",
+      "type": "json"
+    },
+    {
+      "name": "frames2flow",
+      "path": "prepros/flow/flow.mov",
+      "type": "mov"
+    },
+    {
+      "name": "audio2spectrogram",
+      "path": "prepros/spectrogram/spectrogram.png",
+      "type": "png"
+    },
+    {
+      "name": "video2openpose",
+      "path": "prepros/openpose/openpose.json",
+      "type": "json"
+    },
+    {
+      "name": "frames2sift",
+      "path": "prepros/sift/sift.json",
+      "type": "json"
+    }
+  ]
+}
