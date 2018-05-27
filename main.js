@@ -7,8 +7,18 @@ let r, v, b;
 let frame = 0;
 let letter = 'A';
 ctx.font = "30px Verdana";
+let subtitles = '';
+const sub = window.Subtitle;
 
 document.addEventListener('keydown', function(event) { letter = event.key; });
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+// Promises. Shiffman. https://youtu.be/8R-JMcASvEQ?t=42m44s
+async function preload() {
+  const sub_promise = await fetch('data/subtitles.srt');
+  const sub_txt = await sub_promise.text();
+  subtitles = sub.parse(sub_txt); // Subtitles are now in this array ...
+}
 
 function setup() {
   prepro.play();
@@ -63,4 +73,5 @@ function map(v, a, b, x, y) {
   return (v == a) ? x : (v - a) * (y - x) / (b - a) + x;
 }
 
-prepro.load('data/test-video').then(setup);
+// Setup executes after preload
+prepro.load('data/test-video').then(preload).then(setup);
